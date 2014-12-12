@@ -6,8 +6,9 @@ class PoemsController < ApplicationController
     if @poem.save
       redirect_to :back, notice: "Your poem #{@poem.text} has been delivered!"
     else
-      logger.debug @poem.errors.inspect
-      redirect_to :back, alert: "Error sending poem"
+      errors = ''
+      @poem.errors.each {|k,v| errors << v <<  "\n" }
+      redirect_to :back, alert: "Error sending poem:\n #{errors}"
     end
   end
 

@@ -9,10 +9,10 @@
 <body>
 
 <% if flash[:notice] %>
-  <%= flash[:notice] %>
+  <%= simple_format flash[:notice] %>
 <% end%>
 <% if flash[:alert] %>
-  <%= flash[:alert] %>
+  <%= simple_format flash[:alert] %>
 <% end%>
 
 
