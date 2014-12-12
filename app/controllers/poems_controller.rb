@@ -1,5 +1,4 @@
 class PoemsController < ApplicationController
-  @@objects = @@adjectives = []
 
   def create
     @poem = Poem.new(from_name: params[:my_name], to_name: params[:recipient_name], to_email: params[:email])
