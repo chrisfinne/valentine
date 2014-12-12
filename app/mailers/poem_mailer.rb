@@ -1,8 +1,8 @@
 class PoemMailer < ActionMailer::Base
   default from: "from@example.com"
 
-  def send_poem poem, params
+  def send_poem poem
     @poem = poem
-    mail to: params[:email], subject: "Be my Valentine"
+    mail to: poem.to_email, subject: "Be my Valentine"
   end
 end

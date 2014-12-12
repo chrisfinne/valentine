@@ -11,12 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121220028) do
+ActiveRecord::Schema.define(version: 20141212212132) do
 
   create_table "poems", force: true do |t|
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "from_name"
+    t.string   "to_name"
+    t.string   "to_email"
   end
 
 end

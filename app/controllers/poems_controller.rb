@@ -2,6 +2,16 @@ class PoemsController < ApplicationController
   @@objects = @@adjectives = []
 
   def create
+    @poem = Poem.new(from_name: params[:my_name], to_name: params[:recipient_name], to_email: params[:email])
+    if @poem.save
+      redirect_to :back, notice: "Your poem #{@poem.text} has been delivered!"
+    else
+      logger.debug @poem.errors.inspect
+      redirect_to :back, alert: "Error sending poem"
+    end
+  end
+
+  def create_old
     @@objects << "hair is" << "eyes are" << "lips are"
     @@adjectives << "gentle" << "beautiful" << "breathtaking"
 
